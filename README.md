@@ -1,2 +1,2 @@
-# trainings
+# Trainings
 Course of JEE
