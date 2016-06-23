@@ -1,0 +1,11 @@
+Librerias necesarias para generar proyecto.
+oracle-jdbc
+struts2-core
+struts2-convention-plugin
+xwork-core
+Librerias adicionales para generar el proyecto.
+ognl
+javaassist
+commons
+asm
+freemarker
