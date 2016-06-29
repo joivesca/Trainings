@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<!-- enabled annotations -->
+	<context:annotation-config />
+	
+	<!-- Autodiscovery -->
+	<context:component-scan base-package="mx.com.chilitech.spring" >
+		<!--  
+			annotation  >> Filters scan classes looking for those annotated with a given annotation at 
+						   the type level. The annotation to scan for is specified in the expression attribute.
+			assignable  >> Filters scan classes looking for those that are assignable to the type 
+			               specified in the expression attribute.
+			aspectj     >> Filters scan classes looking for those that match the AspectJ type expression 
+						   specified in the expression attribute.
+			custom      >> Uses a custom implementation of org.springframework.core.type
+						   .TypeFilter, as specified in the expression attribute.
+			regex       >> Filters scan classes looking for those whose class names match the regular 
+						   expression specified in the expression attribute.
+		<context:include-filtertype="assignable" expression="com.springinaction.springidol.Instrument"/>
+		<context:include-filtertype="assignable" expression="com.springinaction.springidol.Instrument"/>
+		<context:exclude-filtertype="annotation" expression="com.springinaction.springidol.SkipIt"/>
+			-->
+	</context:component-scan>
+	<!-- Bean declarations go here-->
+	
+	<!-- Spring 3.0 
+		@Autowired
+		@Inject
+		@Resource
+		@Qualifier
+		@Target
+		@Retention
+		@Component    >> A general-purpose stereotype annotation indicating that the class
+                         is a Spring component
+		@Controller   >> Indicates that the class defines a Spring MVC controller
+		@Repository   >> Indicates that the class defines a data repository
+		@Service      >> Indicates that the class defines a service
+	-->
+</beans>
+

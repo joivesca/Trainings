@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Bean declarations go here-->
+
+	<bean id="duke" class="mx.com.chilitech.spring.chapter2.Juggler"/>
+	
+	<bean id="duke2" class="mx.com.chilitech.spring.chapter2.Juggler">
+		<constructor-arg value="15"/>
+	</bean>
+	
+	<bean id="sonnet29" class="mx.com.chilitech.spring.chapter2.Sonnet29"/>
+	
+	<bean id="poeticDuke" class="mx.com.chilitech.spring.chapter2.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg ref="sonnet29"/>
+	</bean>
+	
+	<!-- Factory Method -->
+	<bean id="theStage" class="mx.com.chilitech.spring.chapter2.Stage" factory-method="getInstance" />
+	
+	<!-- Scope -->
+	<bean id="ticket" class="mx.com.chilitech.spring.chapter2.Ticket" scope="prototype"/>
+	<!-- 
+		Scope Types
+		singleton 	   >> Scopes the bean definition to a single instance per String container(default).
+		prototype 	   >> Allows a bean to be instantiated any number of times(once per use).
+		request   	   >> Scopes a bean definition to an HTTP request. Only valid when used with a
+					 	  web-capable Spring context (such as with Spring MVC). 
+		session   	   >> Scopes a bean definition to an HTTP session. Only valid when used with a
+					      web-capable Spring context (such as with Spring MVC).
+		global-session >> Scopes a bean definition to a global HTTP session. Only valid when used in 
+		                  a portlet context.
+	 -->
+	 
+	 <bean id="auditorium" class="mx.com.chilitech.spring.chapter2.Auditorium" 
+	 	init-method="turnOnLights" destroy-method="turnOffLights"/>
+	 	
+	 
+	 <bean id="kenny" class="mx.com.chilitech.spring.chapter2.Instrumentalist">
+	 	<property name="song" value="JingleBells"/>
+	 	<property name="instrument" ref="saxophone"/>
+	</bean>
+	
+	<bean id="kenny2" class="mx.com.chilitech.spring.chapter2.Instrumentalist">
+	 	<property name="song" value="JingleBells"/>
+	 	<property name="instrument" ref="piano"/>
+	</bean>
+		
+	<bean id="saxophone" class="mx.com.chilitech.spring.chapter2.Saxophone"/>
+	
+	<bean id="piano" class="mx.com.chilitech.spring.chapter2.Piano"/>
+
+	<!-- inner-bean -->
+	<bean id="kenny3" class="mx.com.chilitech.spring.chapter2.Instrumentalist">
+		<property name="song" value="JingleBells"/>
+		<property name="instrument">
+			<bean class="mx.com.chilitech.spring.chapter2.Saxophone"/>
+		</property>
+	</bean>
+	
+	<!-- inner-bean -->
+	<bean id="duke3" class="mx.com.chilitech.spring.chapter2.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg>
+			<bean class="mx.com.chilitech.spring.chapter2.Sonnet29"/>
+		</constructor-arg>
+	</bean>
+
+
+	<!-- namespace p -->
+	<!-- add line xmlns:p="http://www.springframework.org/schema/p" -->
+	
+	<bean id="kenny4" class="mx.com.chilitech.spring.chapter2.Instrumentalist"
+	p:song="JingleBells" p:instrument-ref="saxophone"/>
+	
+	<!-- Injection of collections 
+		<list>   >> Wiring a list of values, allowing duplicates.
+		<set>    >> Wiring a set of values, ensuring no duplicates.
+		<map>    >> Wiring a collection of name-value pairs where name and value can be of any type.
+		<props>  >> Wiring a collection of name-value pairs where name and value are both Strings.
+	
+	-->
+	
+	<bean id="hank" class="mx.com.chilitech.spring.chapter2.OneManBand">
+		<property name="instruments">
+			<list>
+				<ref bean="guitar"/>
+				<ref bean="cymbal"/>
+				<ref bean="harmonica"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="hank2" class="mx.com.chilitech.spring.chapter2.OneManBand2">
+		<property name="instruments">
+			<set>
+				<ref bean="guitar"/>
+				<ref bean="cymbal"/>
+				<ref bean="harmonica"/>
+				<ref bean="harmonica"/>
+			</set>
+		</property>
+	</bean>
+	
+	<!-- map -key -value 
+		key       >> Specifies the key of the map entry as a String
+		key-ref   >> Specifies the key of the map entry as a reference to bean in the Spring context.
+		value     >> Specifies the value of the map entry as a String.
+		value-ref >> Specifies the value of the map entry as a reference to bean in the Spring context.
+	-->
+	<bean id="hank3" class="mx.com.chilitech.spring.chapter2.OneManBand3">
+		<property name="instruments">
+		<map>
+			<entry key="GUITAR" value-ref="guitar"/>
+			<entry key="CYMBAL" value-ref="cymbal"/>
+			<entry key="HARMONICA" value-ref="harmonica"/>
+		</map>
+		</property>
+	</bean>
+
+	<bean id="hank4" class="mx.com.chilitech.spring.chapter2.OneManBand4">
+		<property name="instruments">
+			<props>
+				<prop key="GUITAR">STRUM STRUM STRUM</prop>
+				<prop key="CYMBAL">CRASH CRASH CRASH</prop>
+				<prop key="HARMONICA">HUM HUM HUM</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- null value like 	<property name="someNonNullProperty"><null/></property>  -->
+</beans>
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Bean declarations go here-->
+	
+	<!-- Data Access Template 			  
+	jca.cci.core.CciTemplate		     			  >> JCA CCI connections
+	jdbc.core.JdbcTemplate							  >> JDBC connections
+	jdbc.core.namedparam.NamedParameterJdbcTemplate   >> JDBC connections with support for named parameters
+	jdbc.core.simple.SimpleJdbcTemplate               >> JDBC connections, simplified with Java 5 constructs
+	orm.hibernate.HibernateTemplate					  >> Hibernate 2.x sessions
+	orm.hibernate3.HibernateTemplate				  >> Hibernate 3.x sessions
+	orm.ibatis.SqlMapClientTemplate					  >> iBATIS SqlMap clients
+	orm.jdo.JdoTemplate								  >> Java Data Object implementations
+	orm.jpa.JpaTemplate								  >> Java Persistence API entity managers
+	-->
+	
+	<!-- DAO Support 
+	jca.cci.support.CciDaoSupport 						>> JCA CCI connections
+	jdbc.core.support.JdbcDaoSupport 					>> JDBC connections
+	jdbc.core.namedparam.NamedParameterJdbcDaoSupport 	>> JDBC connections with support for named parameters
+	jdbc.core.simple.SimpleJdbcDaoSupport 				>> JDBC connections, simplified with Java 5 constructs
+	orm.hibernate.support.HibernateDaoSupport 			>> Hibernate 2.x sessions 
+	orm.hibernate3.support.HibernateDaoSupport 			>> Hibernate 3.x sessions
+	orm.ibatis.support.SqlMapClientDaoSupport 			>> iBATIS SqlMap clients
+	orm.jdo.support.JdoDaoSupport 						>> Java Data Object implementations
+	orm.jpa.support.JpaDaoSupport 						>> Java Persistence API entity managers
+	-->
+	
+	<!-- using jndi -->
+	<jee:jndi-lookupid="dataSource" jndi-name="/jdbc/SpitterDS" resource-ref="true"/>
+	
+	<!-- Data source Spring -->
+	<!-- 
+	DriverManagerDataSource 	>> Returns a new connection every time that a connection is requested. 
+								   Unlike DBCP’s BasicDataSource, the connections provided by 
+								   DriverManagerDataSource aren’t pooled.
+	SingleConnectionDataSource	>> Returns the same connection every time a connection is requested. 
+								   Although SingleConnectionDataSource isn’t exactly a pooled data source, 
+								   you can think of it as a data source with a pool of exactly one connection.
+	 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:hsql://localhost/spitter/spitter"/>
+		<property name="username" value="sa"/>
+		<property name="password" value=""/>
+	</bean>
+
+
+	<!--  using pooled data source apache.commons.dbcp -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+		<property name="url" value="jdbc:hsqldb:hsql://localhost/spitter/spitter"/>
+		<property name="username" value="sa"/>
+		<property name="password" value=""/>
+		<property name="initialSize" value="5"/>
+		<property name="maxActive" value="10"/>
+		<!-- Pool Properties 
+			initialSize 				>> The number of connections created when the pool is started.
+			maxActive 					>> The maximum number of connections that can be allocated
+									   		from the pool at the same time. If zero, there’s no limit.
+			maxIdle 					>> The maximum number of connections that can be idle in the
+									   		pool without extras being released. If zero, there’s no limit.
+			maxOpenPreparedStatements 	>> The maximum number of prepared statements that can be 
+										   	allocated from the statement pool at the same time. If zero,
+											there’s no limit.
+			maxWait 					>>	How long the pool will wait for a connection to be returned to
+											the pool (when there are no available connections) before an
+											exception is thrown. If -1, wait indefinitely.
+			minEvictableIdleTimeMillis 	>>	How long a connection can remain idle in the pool before it’s eligible for eviction.
+			minIdle 					>>	The minimum number of connections that can remain idle in
+											the pool without new connections being created.
+			poolPreparedStatements 		>> Whether or not to pool prepared statements (Boolean).
+		 -->	
+	</bean>
+	
+	<!-- Accesing Data using JdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+		<constructor-argref="dataSource"/>
+	</bean>
+</beans>
+

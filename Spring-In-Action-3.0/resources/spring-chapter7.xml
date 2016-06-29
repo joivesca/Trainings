@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/mvc
+							http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	
+	<!-- Bean declarations go here-->
+	
+	<!-- Hearth of Spring MVC is DispatcherServlet our declared in web.xml -->
+	
+	<!-- recursos estaticos -->
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	
+	
+	<!-- Resolving views 
+	
+	BeanNameViewResolver 			>> Finds an implementation of View that’s registered as a
+										<bean> whose ID is the same as the logical view name.
+	ContentNegotiatingViewResolver 	>> Delegates to one or more other view resolvers, the choice
+										of which is based on the content type being requested.
+	FreeMarkerViewResolver 			>> Finds a FreeMarker-based template whose path is deter-
+										mined by prefixing and suffixing the logical view name.
+	InternalResourceViewResolver 	>> Finds a view template contained within the web application’s WAR file. 
+										The path to the view template is derived by prefixing and suffixing the logical view name.
+	JasperReportsViewResolver 		>>	Finds a view defined as a Jasper Reports report file whose path is derived by 
+										prefixing and suffixing the logical view name.
+	ResourceBundleViewResolver 		>>	Looks up View implementations from a properties file.
+	TilesViewResolver 				>>	Looks up a view that is defined as a Tiles template. The name of the template is the 
+										same as the logical view name.
+	UrlBasedViewResolver 			>>	This is the base class for some of the other view resolvers, such as InternalResourceViewResolver. 
+										It can be used on its own, but it’s not as powerful as its sub-classes. For example, UrlBasedViewResolver is
+										unable to resolve views based on the current locale.
+	VelocityLayoutViewResolver 		>>	This is a subclass of VelocityViewResolver that supports page composition via Spring’s VelocityLayout-
+										View (a view implementation that emulates Velocity’s VelocityLayoutServlet).
+	VelocityViewResolver 			>>	Resolves a Velocity-based view where the path of a Velocity template is derived by prefixing 
+										and suffixing the logical view name.
+	XmlViewResolver 				>>	Finds an implementation of View that’s declared as a <bean> in an XML file (/WEB-INF/views.xml). 
+										This view resolver is a lot like BeanNameViewResolver except that the view <bean>s are declared separately 
+										from those for the application’s Spring context.
+	XsltViewResolver 				>>	Resolves an XSLT-based view where the path of the XSLT stylesheet is derived by prefixing and suffixing 
+										the logical view name.
+	
+	-->
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- if JSP uses some JSTL tags use next -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+</beans>
+
