@@ -31,8 +31,10 @@
 	orm.jpa.support.JpaDaoSupport 						>> Java Persistence API entity managers
 	-->
 	
-	<!-- using jndi -->
+	<!-- using jndi 
 	<jee:jndi-lookupid="dataSource" jndi-name="/jdbc/SpitterDS" resource-ref="true"/>
+	
+	-->
 	
 	<!-- Data source Spring -->
 	<!-- 
@@ -52,7 +54,7 @@
 
 
 	<!--  using pooled data source apache.commons.dbcp -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
 		<property name="url" value="jdbc:hsqldb:hsql://localhost/spitter/spitter"/>
 		<property name="username" value="sa"/>
@@ -80,7 +82,7 @@
 	
 	<!-- Accesing Data using JdbcTemplate -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
-		<constructor-argref="dataSource"/>
+		<constructor-arg ref="dataSource"/>
 	</bean>
 </beans>
 
