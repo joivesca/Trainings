@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
 "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
-	
-<struts-config>
-	<form-beans>
-		<form-bean name="helloWorldForm" type="mx.com.chilitech.form.HelloWorldForm"></form-bean>
-	</form-beans>
 
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="helloWorldForm" type="mx.com.chilitech.form.HelloWorldForm" />
+		<form-bean name="listForm" type="mx.com.chilitech.form.DefectsListForm" />
+		<form-bean name="actionForm" type="mx.com.chilitech.form.DefectsActionForm" />
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="list" path="/list.do" />
+	</global-forwards>
+	
 	<action-mappings>
-		<action path="/helloWorld" type="mx.com.chilitech.controller.HelloWorldController"
-		name="helloWorldForm">
-			<forward name="success" path="/HelloWorld.jsp"></forward>
+		<action path="/helloWorld" name="helloWorldForm" 
+			type="mx.com.chilitech.controller.HelloWorldController" validate="false">
+			<forward name="success" path="/HelloWorld.jsp" />
+		</action>
+		<action path="/list" name="listForm" scope="request" 
+			type="mx.com.chilitech.controller.DefectsList" validate="false">
+			<forward name="list" path="/pages/defects.jsp" />
+		</action>
+		<action path="/action" name="actionForm" scope="request"
+			type="mx.com.chilitech.controller.DefectsAction" parameter="method" validate="false">
+			<forward name="edit" path="/pages/editDefect.jsp" />
+			<forward name="add" path="/pages/addDefect.jsp "/>
+			<forward name="list" path="/list.do" redirect="true" />
 		</action>
 	</action-mappings>
+	
+	<message-resources parameter="MessageResources" />
+	
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" 
+			value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/validation.xml" />
+	</plug-in>
+	
+	
 </struts-config>
