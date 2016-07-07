@@ -20,52 +20,47 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-struts-2.0.8.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/antlr">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-web-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dom4j">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-webmvc-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jta">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-context-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slf4j">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-beans-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-2.5.6">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-context-support-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate-3.0">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-core-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaassist">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-tx-2.5.6.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/aopalliance">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/spring/spring-2.5.6/spring-orm-2.5.6.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Hitss/Google Drive/Librerias-Compartidas/hibernate/hibernate3.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/derby-jdbc">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
