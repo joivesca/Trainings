@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="homePage" template="/layouts/template.jsp">
+		<put-attribute name="header" value="/layouts/defaultHeader.jsp" />
+		<put-attribute name="menu" value="/layouts/defaultMenu.jsp" />
+		<put-attribute name="body" value="/layouts/home_body.jsp" />
+		<put-attribute name="footer" value="/layouts/defaultFooter.jsp" />
+    </definition>
+    
+    <definition name="aboutPage" template="/layouts/template.jsp">
+<put-attribute name="header" value="/layouts/defaultHeader.jsp" />
+<put-attribute name="menu" value="/layouts/defaultMenu.jsp" />
+<put-attribute name="body" value="/layouts/about_body.jsp" />
+<put-attribute name="footer" value="/layouts/defaultFooter.jsp" />
+    </definition>
+    
+    <!-- Extend -->
+    <definition name="commonPage" template="/template.jsp">
+<put-attribute name="header" value="/defaultHeader.jsp" />
+<put-attribute name="menu" value="/defaultMenu.jsp" />
+<put-attribute name="footer" value="/defaultFooter.jsp" />
+    </definition>
+ 
+    <definition name="homePage" extends="commonPage">
+<put-attribute name="body" value="/home_body.jsp" />
+    </definition>
+ 
+    <definition name="aboutPage" extends="commonPage">
+<put-attribute name="body" value="/about_body.jsp" />
+    </definition>
+ 
+
+    
+</tiles-definitions>
