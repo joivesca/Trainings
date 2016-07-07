@@ -26,7 +26,7 @@
 		<action path="/action" name="actionForm" scope="request"
 			type="mx.com.chilitech.controller.DefectsAction" parameter="method" validate="false">
 			<forward name="edit" path="/pages/editDefect.jsp" />
-			<forward name="add" path="/pages/addDefect.jsp "/>
+			<forward name="add" path="/pages/addDefect.jsp" />
 			<forward name="list" path="/list.do" redirect="true" />
 		</action>
 	</action-mappings>
