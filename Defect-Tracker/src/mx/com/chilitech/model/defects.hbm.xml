@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="mx.com.chilitech.model">
+    
+    <class name="Defect" table="defect" >
+        <id name="id" column="id" unsaved-value="0">
+            <generator class="identity"/>
+        </id>
+        <property name="description" column="description" />
+        <property name="priority" column="priority" type="int" />
+        <property name="isResolved" column="is_resolved" type="boolean"/>
+        <property name="resolution" column="resolution" />
+        <property name="submittedOn" column="submitted_on" type="timestamp" />
+        <property name="submittedBy" column="submitted_by" />
+        <property name="resolvedOn" column="resolved_on" type="timestamp" />
+        <property name="resolvedBy" column="resolved_by" />
+    </class>
+    
+</hibernate-mapping>
