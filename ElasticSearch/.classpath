@@ -11,5 +11,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jackson-2.3.3"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/elastic-search"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jest"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lucene"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
