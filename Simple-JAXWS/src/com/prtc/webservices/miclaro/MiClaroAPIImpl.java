@@ -6,8 +6,8 @@ import javax.jws.WebService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-//@WebService(endpointInterface = "com.prtc.webservices.miclaro.MiClaroAPI")
-@WebService(serviceName="service", portName="MyServiceService")
+@WebService(endpointInterface = "com.prtc.webservices.miclaro.MiClaroAPI")
+//@WebService(serviceName="service", portName="MyServiceService")
 public class MiClaroAPIImpl implements MiClaroAPI{
 
 	private Log log = LogFactory.getLog(this.getClass());

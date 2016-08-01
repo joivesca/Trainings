@@ -4,6 +4,7 @@
   version="2.0">
   <endpoint
       name="MiClaroAPI"
+      interface="com.prtc.webservices.miclaro.MiClaroAPI"
       implementation="com.prtc.webservices.miclaro.MiClaroAPIImpl"
       url-pattern="/servicesMiClaro"/>
 </endpoints>
