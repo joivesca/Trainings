@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://miclaro.webservices.prtc.com/" xmlns:tns="http://miclaro.webservices.prtc.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="MiClaroAPIException" type="tns:MiClaroAPIException"/>
+
+  <xs:complexType name="phoneInformation">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="responseDslInformation">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="MiClaroAPIException">
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="adaServiceAssuranceParams">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="responseData">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+
