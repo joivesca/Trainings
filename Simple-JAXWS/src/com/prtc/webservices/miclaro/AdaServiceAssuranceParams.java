@@ -9,6 +9,7 @@ import com.prtc.webservices.utils.WwParams;
 public class AdaServiceAssuranceParams extends WwParams implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	private String dslPhoneNumber;
 	private String employeeNumber;
 	private String employeeChannel;

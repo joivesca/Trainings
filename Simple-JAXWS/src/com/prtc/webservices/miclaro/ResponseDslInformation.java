@@ -5,10 +5,8 @@ import java.io.Serializable;
 public class ResponseDslInformation implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private boolean existingDSLCustomer;
-	private String dslProduct;
+	private boolean dslCustomer;
 	private String dslProductId;
-	private String dslOrderStatus;
 	private String dslOrderType;
 	private String actualDownloadSpeed;
 	private String actualUploadSpeed;
@@ -21,15 +19,12 @@ public class ResponseDslInformation implements Serializable{
 	private boolean isHsiQualified;
 	
 	public ResponseDslInformation(
-			boolean existingDSLCustomer, String dslProduct, String dslProductId,
-			String dslOrderStatus, String dslOrderType, String actualDownloadSpeed,
-			String actualUploadSpeed, String maxLineBandwidth, String statusCode, 
-			String reasonMessage) {
+			boolean dslCustomer,        String dslProductId,      String dslOrderType, 
+			String actualDownloadSpeed, String actualUploadSpeed, String maxLineBandwidth,
+			String statusCode,          String reasonMessage ) {
 		super();
-		this.existingDSLCustomer = existingDSLCustomer;
-		this.dslProduct = dslProduct;
+		this.dslCustomer = dslCustomer;
 		this.dslProductId = dslProductId;
-		this.dslOrderStatus = dslOrderStatus;
 		this.dslOrderType = dslOrderType;
 		this.actualDownloadSpeed = (actualDownloadSpeed == null ? "0" : actualDownloadSpeed);
 		this.actualUploadSpeed = (actualUploadSpeed == null ? "0" : actualUploadSpeed);
@@ -42,20 +37,12 @@ public class ResponseDslInformation implements Serializable{
 		super();
 	}
 
-	public boolean isExistingDSLCustomer() {
-		return existingDSLCustomer;
+	public boolean isDslCustomer() {
+		return dslCustomer;
 	}
 
-	public void setExistingDSLCustomer(boolean existingDSLCustomer) {
-		this.existingDSLCustomer = existingDSLCustomer;
-	}
-	
-	public String getDslProduct() {
-		return dslProduct;
-	}
-
-	public void setDslProduct(String dslProduct) {
-		this.dslProduct = dslProduct;
+	public void setDslCustomer(boolean dslCustomer) {
+		this.dslCustomer = dslCustomer;
 	}
 	
 	public String getDslProductId() {
@@ -64,14 +51,6 @@ public class ResponseDslInformation implements Serializable{
 
 	public void setDslProductId(String dslProductId) {
 		this.dslProductId = dslProductId;
-	}
-	
-	public String getDslOrderStatus() {
-		return dslOrderStatus;
-	}
-
-	public void setDslOrderStatus(String dslOrderStatus) {
-		this.dslOrderStatus = dslOrderStatus;
 	}
 	
 	public String getDslOrderType() {
@@ -150,10 +129,8 @@ public class ResponseDslInformation implements Serializable{
 	public String toString() {
 		String dataString = "ResponseDslInformation Data \n" +
 				"---------------------------------\n" + 
-				"Existing DSL Customer: " + existingDSLCustomer + "\n" +
-				"DSL Product: " + dslProduct + "\n" +
-				"DSL Product Id: " + dslProductId + "\n" +
-				"DSL Order Status: " + dslOrderStatus + "\n" +
+				"DSL Customer: " + dslCustomer + "\n" +
+				"DSL Product Id: " + dslProductId + "\n" +		
 				"DSL Order Type: " + dslOrderType + "\n" +
 				"DSL Actual Download Speed: " + actualDownloadSpeed + "\n" +
 				"DSL Actual Upload Speed: " + actualUploadSpeed + "\n" +

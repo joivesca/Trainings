@@ -6,8 +6,8 @@ import javax.jws.WebService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-@WebService(endpointInterface = "com.prtc.webservices.miclaro.MiClaroAPI")
-//@WebService(serviceName="service", portName="MyServiceService")
+@WebService(endpointInterface="com.prtc.webservices.miclaro.MiClaroAPI",
+targetNamespace="", portName="", serviceName="")
 public class MiClaroAPIImpl implements MiClaroAPI{
 
 	private Log log = LogFactory.getLog(this.getClass());
@@ -16,7 +16,7 @@ public class MiClaroAPIImpl implements MiClaroAPI{
 		
 	}
 	
-	public ResponseDslInformation dslInformationQualification(PhoneInformation phoneInformation) 
+	public ResponseDslInformation getDslInformationQualification(String phoneInformation) 
 			throws MiClaroAPIException {
 		log.info("dslInformationQualification");
 		if(phoneInformation == null ) {
@@ -28,7 +28,7 @@ public class MiClaroAPIImpl implements MiClaroAPI{
 		return new ResponseDslInformation();
 	}
 
-	public ResponseData adaDmaxPackageChange(AdaServiceAssuranceParams adaServiceAssuranceParams) 
+	public ResponseData adaDslPackageChange(AdaServiceAssuranceParams adaServiceAssuranceParams) 
 			throws MiClaroAPIException {
 		log.info("adaDmaxPackageChange");
 		if(adaServiceAssuranceParams == null) {

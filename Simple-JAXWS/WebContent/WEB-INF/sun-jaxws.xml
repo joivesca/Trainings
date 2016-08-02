@@ -2,9 +2,15 @@
 <endpoints
   xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
   version="2.0">
+
   <endpoint
-      name="MiClaroAPI"
-      interface="com.prtc.webservices.miclaro.MiClaroAPI"
-      implementation="com.prtc.webservices.miclaro.MiClaroAPIImpl"
-      url-pattern="/servicesMiClaro"/>
+        name="MiClaroAPI"
+        interface="com.prtc.webservices.miclaro.MiClaroAPI"
+        implementation="com.prtc.webservices.miclaro.MiClaroAPIImpl"
+        
+        url-pattern="/servicesMiClaro" />
 </endpoints>
+ <!--wsdl="WEB-INF/wsdl/FromAttachmateNumberPortabilityService.wsdl"
+  service="{http://npmessage.services.portability.prtc.com}message"
+ port="{http://npmessage.services.portability.prtc.com}messageSoap12"
+ -->
